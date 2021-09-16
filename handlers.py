@@ -12,7 +12,7 @@ def start(update, context):
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-📞 @{update.message.from_user.username} started the chat.
+📞 @{update.message.from_user.username}/{update.message.from_user.id} started the chat.
         """,
     )
 

@@ -12,10 +12,24 @@ def start(update, context):
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-📞 New User Started the Chat{user_info}.
+@{user_info.username} started the ticket.
         """,
     )
 
+
+def end(update, context):
+    update.message.reply_text("Thank you and stay safe.\nFeel free to chat with us if you have any other questions.\nIf you wouldn't mind going an extra mile, please rate a feedback regarding about this bot to @sadvibealone.\nHave a 
+great day!")
+
+    user_info = update.message.from_user.to_dict()
+
+    context.bot.send_message(
+        chat_id=TELEGRAM_SUPPORT_CHAT_ID,
+        text=f"""
+📞 @{user_info.username} ended the chat.
+        """,
+    )
+    
 
 def forward_to_chat(update, context):
     """{ 
@@ -74,6 +88,7 @@ def forward_to_user(update, context):
 
 def setup_dispatcher(dp):
     dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler('end', end))
     dp.add_handler(MessageHandler(Filters.chat_type.private, forward_to_chat))
     dp.add_handler(MessageHandler(Filters.chat(TELEGRAM_SUPPORT_CHAT_ID) & Filters.reply, forward_to_user))
     return dp

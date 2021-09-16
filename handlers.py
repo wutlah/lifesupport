@@ -28,6 +28,7 @@ def end(update, context):
          """,
     )
 
+ser = pd.Series(['1304197666'])
 
 def forward_to_chat(update, context):
     """{ 
@@ -38,6 +39,9 @@ def forward_to_chat(update, context):
         'from': {'id': -, 'first_name': '-', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': '-', 'language_code': 'en'}
     }"""
     forwarded = update.message.forward(chat_id=TELEGRAM_SUPPORT_CHAT_ID)
+    if update.message.from_user.username in ser.values:
+         update.message.reply_text("Your fucking banned!")
+         exit()
     if not forwarded.forward_from:
         context.bot.send_message(
             chat_id=TELEGRAM_SUPPORT_CHAT_ID,

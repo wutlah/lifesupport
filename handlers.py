@@ -8,11 +8,12 @@ def start(update, context):
     update.message.reply_text(WELCOME_MESSAGE)
 
     user_info = update.message.from_user.to_dict()
+    nameeee = user_info.username
 
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-@{user_info.username} started the ticket.
+{nameeee} started the ticket.
         """,
     )
 
@@ -26,7 +27,7 @@ great day!")
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-📞 @{user_info.username} ended the chat.
+📞{user_info} ended the chat.
         """,
     )
     

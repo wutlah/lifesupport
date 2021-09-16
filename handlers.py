@@ -12,19 +12,19 @@ def start(update, context):
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-📞 New User Started the Chat{update.message.from_user.username}.
+📞 User Started the Chat{user_info}.
         """,
     )
 
 def end(update, context):
-    update.message.reply_text(WELCOME_MESSAGE)
+    update.message.reply_text("Thank you and stay safe.\nFeel free to chat with us if you have any other questions.")
 
     user_info = update.message.from_user.to_dict()
 
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-📞  the Chat{user_info}.
+📞  User ended the Chat{user_info}.
         """,
     )
 
@@ -86,6 +86,7 @@ def forward_to_user(update, context):
 
 def setup_dispatcher(dp):
     dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler('end', end))
     dp.add_handler(MessageHandler(Filters.chat_type.private, forward_to_chat))
     dp.add_handler(MessageHandler(Filters.chat(TELEGRAM_SUPPORT_CHAT_ID) & Filters.reply, forward_to_user))
     return dp

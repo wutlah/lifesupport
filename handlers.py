@@ -12,7 +12,7 @@ def start(update, context):
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-📞 User Started the Chat{user_info}.
+📞 @{update.message.from_user.username} started the chat.
         """,
     )
 
@@ -24,8 +24,8 @@ def end(update, context):
     context.bot.send_message(
         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
         text=f"""
-📞  User ended the Chat{user_info}.
-        """,
+📞 @{update.message.from_user.username} ended the chat.
+         """,
     )
 
 

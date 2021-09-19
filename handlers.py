@@ -65,10 +65,12 @@ def forward_to_user(update, context):
     user_id = None
     if update.message.reply_to_message.forward_from:
         user_id = update.message.reply_to_message.forward_from.id
-        context.bot.send_message(text=f'From: @{update.message.from_user.username}'
     elif REPLY_TO_THIS_MESSAGE in update.message.reply_to_message.text:
         try:
             user_id = int(update.message.reply_to_message.text.split('\n')[0])
+            context.bot.send_message(
+                text=f'From: @{update.message.from_user.username}'
+                chat_id=user_id
         except ValueError:
             user_id = None
     if user_id:

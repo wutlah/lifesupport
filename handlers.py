@@ -76,11 +76,6 @@ def forward_to_user(update, context):
             chat_id=user_id,
             from_chat_id=update.message.chat_id
         )
-        context.bot.send_message(
-            text=f'From: @{update.message.from_user.username}',
-            chat_id=user_id,
-            from_chat_id=update.message.chat_id
-        )
     else:
         context.bot.send_message(
             chat_id=TELEGRAM_SUPPORT_CHAT_ID,

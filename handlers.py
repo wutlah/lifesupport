@@ -69,7 +69,7 @@ def forward_to_user(update, context):
         try:
             user_id = int(update.message.reply_to_message.text.split('\n')[0])
             context.bot.send_message(
-                text=f'From: @{update.message.from_user.username}'
+                text=f'From: @{update.message.from_user.username}',
                 chat_id=user_id
             )
         except ValueError:

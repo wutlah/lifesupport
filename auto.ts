@@ -25,3 +25,5 @@ const strings = [
     [ "topped", "1) Please refresh/restart the app.\n2) Check if you have received any topup sms/email from us at that timing.\n3) GET app balance may not be updated but you may still be able to spend it.\n4) Contact us via the in-app chat for more information." ],
     [ "toped", "1) Please refresh/restart the app.\n2) Check if you have received any topup sms/email from us at that timing.\n3) GET app balance may not be updated but you may still be able to spend it.\n4) Contact us via the in-app chat for more information." ],
 ]
+
+export default strings;

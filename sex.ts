@@ -11,7 +11,7 @@ const config = {
 
   // customize your language
   language: {
-    startCommandText: 'Hi there, welcome to GetChat! Enjoy these benefits when you chat with us now:\n- Updates for GET services\n- Live chat support\n- Make new friends\n\nPlus! If you're a new with us, you can also:\n- Find our more about us through GetChat',
+    startCommandText: `Hi there, welcome to GetChat! Enjoy these benefits when you chat with us now:\n- Updates for GET services\n- Live chat support\n- Make new friends\n\nPlus! If you're a new with us, you can also:\n- Find our more about us through GetChat`,
     faqCommandText: 'FAQ Still in development.',
     helpCommandText: '<b>Available commands:</b>\n/help\n/faq\n/id',
     contactMessage: 'Thank you for contacting us. We will answer as soon as possible.',
